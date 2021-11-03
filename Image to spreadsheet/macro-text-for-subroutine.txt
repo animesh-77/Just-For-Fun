@@ -1,0 +1,58 @@
+Sub fill_cell_colour()
+
+lRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+lCol = Cells(1, Columns.Count).End(xlToLeft).Column
+
+
+For col = 1 To lCol
+    
+    For Row = 1 To lRow Step 3
+
+        ActiveSheet.Cells(Row, col).Select
+        R = ActiveCell.Value
+        ActiveCell.Interior.Color = RGB(R, 0, 0)
+        
+        ActiveSheet.Cells(Row + 1, col).Select
+        G = ActiveCell.Value
+        ActiveCell.Interior.Color = RGB(0, G, 0)
+        
+        ActiveSheet.Cells(Row + 2, col).Select
+        B = ActiveCell.Value
+        ActiveCell.Interior.Color = RGB(0, 0, B)
+    
+    Next Row
+Next col
+
+    
+End Sub
+
+Sub clear_cell_colour()
+
+lRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+lCol = Cells(1, Columns.Count).End(xlToLeft).Column
+
+
+For col = 1 To lCol
+    
+    For Row = 1 To lRow Step 3
+
+        ActiveSheet.Cells(Row, col).Select
+        R = ActiveCell.Value
+        ActiveCell.Interior.ColorIndex = 0
+        
+        ActiveSheet.Cells(Row + 1, col).Select
+        G = ActiveCell.Value
+        ActiveCell.Interior.ColorIndex = 0
+        
+        ActiveSheet.Cells(Row + 2, col).Select
+        B = ActiveCell.Value
+        ActiveCell.Interior.ColorIndex = 0
+        
+        
+    Next Row
+Next col
+
+    
+End Sub
